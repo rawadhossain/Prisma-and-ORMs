@@ -16,6 +16,10 @@ or
 npm install prisma typescript ts-node @types/node --save-dev
 ```
 
+```bash
+npm install express @types/express
+```
+
 tsconfig.json
 
 ```bash
