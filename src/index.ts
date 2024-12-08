@@ -39,7 +39,7 @@ async function updateUser() {
 async function readUser() {
     /*
     findFirst => for one record
-    findMany => for multiple record 
+    findMany => for multiple record
     */
     const user = await client.user.findFirst({
         where: {

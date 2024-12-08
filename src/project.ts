@@ -1,4 +1,4 @@
-//move it to index.ts to run it sucessfully
+// move it to index.ts to run it sucessfully
 
 import express from 'express';
 import { Request, Response } from 'express';
@@ -19,15 +19,15 @@ app.get('/users', async (req: Request, res: Response) => {
 app.get('/todos/:id', async (req: Request, res: Response) => {
     const id = req.params.id; // takes sas string "1"
 
-    const user = await client.todo.findFirst({
+    const user = await client.user.findFirst({
         where: {
             id: Number(id), //converts string to number
         },
         select: {
             todos: true,
-            title: true,
-            description: true,
-            done: true,
+
+            username: true,
+            password: true,
         },
     });
 

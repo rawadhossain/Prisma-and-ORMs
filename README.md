@@ -32,7 +32,11 @@ package.json
 ```bash
 "scripts": {
         "dev": "tsc -b && node ./dist/index.js"
-    },
+},
+
+"prisma": {
+  "seed": "ts-node prisma\seed.ts"
+}
 ```
 
 Initialize a fresh prisma project
@@ -51,4 +55,10 @@ Generate a prisma client
 
 ```bash
 npx prisma generate
+```
+
+Seed the database
+
+```bash
+npx prisma db seed
 ```
