@@ -46,14 +46,27 @@ async function readUser() {
             id: 100,
         },
 
-        select: {
-            username: true, //select only username to log
-        },
+        // select: {
+        //     username: true, //select only username to log
+        // },
     });
     console.log(user); //can be a value of null so '?'
+}
+
+async function getUser() {
+    const user = await client.user.findFirst({
+        where: {
+            id: 1,
+        },
+        include: {
+            todos: true,
+        },
+    });
+    console.log(user);
 }
 
 // createUser();
 // deleteUser();
 // updateUser();
-readUser();
+// readUser();
+getUser();
