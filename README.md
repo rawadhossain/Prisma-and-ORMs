@@ -6,21 +6,21 @@ Ref - https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles
 - Add a prisma client singleton inside it
 
 ```bash
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
-  return new PrismaClient()
-}
+    return new PrismaClient();
+};
 
 declare global {
-  var prisma: undefined | ReturnType<typeof prismaClientSingleton>
+    var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
 }
 
-const prisma = globalThis.prisma ?? prismaClientSingleton()
+const prismaClient = globalThis.prisma ?? prismaClientSingleton();
 
-export default prisma
+export default prismaClient;
 
-if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma
+if (process.env.NODE_ENV !== 'production') globalThis.prisma = prismaClient;
 ```
 - Update imports of prisma everywhere
 
